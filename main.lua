@@ -50,7 +50,7 @@ VIRTUAL_HEIGHT = 243
 -- paddle movement speed
 DIFFICULTY = 1
 PADDLE_SPEED = 200
-AI_PADDLE_SPEED = 50
+AI_PADDLE_SPEED = 40
 
 --[[
     Called just once at the beginning of the game; used to set up
@@ -235,9 +235,9 @@ function love.update(dt)
     -- paddles can move no matter what state we're in
     --
     -- player 1
-    if love.keyboard.isDown('w') then
+    if love.keyboard.isDown('w') or love.keyboard.isDown('up') then
         player1.dy = -PADDLE_SPEED
-    elseif love.keyboard.isDown('s') then
+    elseif love.keyboard.isDown('s') or love.keyboard.isDown('down') then
         player1.dy = PADDLE_SPEED
     else
         player1.dy = 0
